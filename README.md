@@ -42,5 +42,7 @@ PORT=4000
 ```
 
 ```bash
-npm run start
+npm run start:dev (DEV environment)
+
+npm run start:prod (PROD environment)
 ```

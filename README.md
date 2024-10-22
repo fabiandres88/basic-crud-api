@@ -28,7 +28,7 @@ This project is a simple CRUD (Create, Read, Update, Delete) API using an in-mem
 ```bash
 git clone https://github.com/fabiandres88/basic-crud-api.git (HTTPS)
 
-git clone git@github.com:fabiandres88/basic-crud-api.git (SH)
+git clone git@github.com:fabiandres88/basic-crud-api.git (SSH)
 
 cd basic-crud-api
 
@@ -43,5 +43,4 @@ PORT=4000
 
 ```bash
 npm run start
-PORT=4000
 ```

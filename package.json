@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "start:prod": "tsc && node dist/server.js",
-    "lint": "eslint . --ext .ts",
-    "prettier": "prettier --write ."
+    "start": "node dist/app.js",
+    "start:dev": "nodemon src/server/server.ts",
+    "build": "tsc",
+    "start:prod": "npm run build && npm start",
+    "start:multi": "npm run build && node src/cluster/cluster.js"
   },
   "keywords": [],
   "author": "Fabian Ramirez",

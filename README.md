@@ -1,6 +1,6 @@
 # Simple CRUD API
 
-This project is a simple CRUD (Create, Read, Update, Delete) API using an in-memory database built with **Node.js** and **Express.js**. The API provides endpoints to manage user records, handling HTTP requests for creating, retrieving, updating, and deleting users. Each user record contains an `id`, `username`, `age`, and `hobbies`.
+This project is a simple CRUD (Create, Read, Update, Delete) API using an in-memory database built with **Node.js**. The API provides endpoints to manage user records, handling HTTP requests for creating, retrieving, updating, and deleting users. Each user record contains an `id`, `username`, `age`, and `hobbies`.
 
 ## Features
 

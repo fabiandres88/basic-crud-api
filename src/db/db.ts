@@ -1,32 +1,38 @@
-import { User } from "../types/types";
+import { v4 as uuidv4 } from "uuid";
 import { usersDb } from "./users";
 
-usersDb;
+interface User {
+  id: string;
+  username: string;
+  age: number;
+  hobbies: string[];
+}
 
-export const getUsers = () => usersDb;
+const users: User[] = usersDb;
 
-export const getUserById = (id: string) =>
-  usersDb.find((user) => user.id === id);
-
-export const createUser = (user: User) => {
-  usersDb.push(user);
-  return user;
-};
-
-export const updateUser = (id: string, updatedUser: Partial<User>) => {
-  const index = usersDb.findIndex((user) => user.id === id);
-  if (index !== -1) {
-    usersDb[index] = { ...usersDb[index], ...updatedUser };
-    return usersDb[index];
-  }
-  return null;
-};
-
-export const deleteUser = (id: string) => {
-  const index = usersDb.findIndex((user) => user.id === id);
-  if (index !== -1) {
-    usersDb.splice(index, 1);
+export const db = {
+  getUsers: () => users,
+  getUser: (id: string) => users.find((user) => user.id === id),
+  addUser: (username: string, age: number, hobbies: string[]) => {
+    const newUser: User = { id: uuidv4(), username, age, hobbies };
+    users.push(newUser);
+    return newUser;
+  },
+  updateUser: (
+    id: string,
+    username: string,
+    age: number,
+    hobbies: string[]
+  ) => {
+    const userIndex = users.findIndex((user) => user.id === id);
+    if (userIndex === -1) return null;
+    users[userIndex] = { id, username, age, hobbies };
+    return users[userIndex];
+  },
+  deleteUser: (id: string) => {
+    const userIndex = users.findIndex((user) => user.id === id);
+    if (userIndex === -1) return false;
+    users.splice(userIndex, 1);
     return true;
-  }
-  return false;
+  },
 };
